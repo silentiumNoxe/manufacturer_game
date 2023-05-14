@@ -26,7 +26,7 @@ class Order {
         const balance = Balance.getBalance();
         const x = this.sum().plus(price);
         console.log(x.toString(), balance.toString(), balance.lt(x));
-        if (g.amount >= 0 && balance.lt(this.sum().plus(price))) {
+        if (g.amount >= 0 && balance.lt(this.sum().neg().plus(price))) {
             return;
         }
 

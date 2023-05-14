@@ -124,6 +124,7 @@ async function renderStore($view) {
         $body.classList.add("body")
         const $img = document.createElement("img")
         $img.src = `assets/${x.id}.jpg`
+        $img.addEventListener("click", () => buy(x.id))
         $body.append($img)
 
         const $footer = document.createElement("footer")

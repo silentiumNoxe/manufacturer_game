@@ -3,11 +3,16 @@ const TABLE = "balance";
 const listener = new EventTarget();
 
 export function init() {
+    if (localStorage.getItem("init") === "1") {
+        return;
+    }
+
     if (!get().eq(0)) {
         return
     }
 
     apply(10);
+    localStorage.setItem("init", "1");
 }
 
 /**

@@ -138,6 +138,7 @@ span.green {
 .card[data-type="goods"] div.body > img {
     width: var(--width);
     height: var(--heigth);
+    cursor: pointer;
 }
 
 .card[data-type="goods"] header {
