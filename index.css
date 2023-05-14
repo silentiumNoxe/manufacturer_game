@@ -1,0 +1,180 @@
+:root {
+    --background-color: #363636;
+}
+
+* {
+    font-family: Ubuntu, sans-serif;
+    user-focus: none;
+    user-select: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+header.main {
+    position: fixed;
+    width: 100%;
+
+    color: white;
+}
+
+header.main > :not(:first-child) {
+    margin-top: 10px;
+}
+
+header.main [data-type="data"] {
+    margin-right: 5vw;
+}
+
+header.main [data-type="money"] {
+    margin-top: 2.2vh;
+    margin-left: auto;
+    float: right;
+}
+
+header.main [data-type="title"] {
+    margin-left: 1vw;
+}
+
+#game-nav {
+    font-size: 1.3em;
+    background-color: #2a2a2a;
+
+    padding: 12px;
+}
+
+#game-nav > * {
+    text-align: center;
+    cursor: pointer;
+
+    padding: 4px 8px;
+
+    border: 1px solid white;
+
+    margin-right: 1vw;
+}
+
+#view {
+    padding-top: 15vh;
+    color: white;
+}
+
+nav.blue {
+    background-color: #111169;
+}
+
+nav.blue > * {
+    border-color: #7474ad;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+#view[data-view="store"] > .container {
+    display: flex;
+}
+
+#view[data-view="store"] [data-action="accept"] {
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+
+    border: none;
+    font-size: 1.3em;
+}
+
+div.card {
+    --width: 12vw;
+    --heigth: 16vh;
+
+    border: 1px solid white;
+    min-width: var(--width);
+    min-height: var(--heigth);
+
+    margin: 0 25px;
+
+    user-select: none;
+}
+
+span.red {
+    color: darkred;
+}
+
+span.green {
+    color: darkgreen;
+}
+
+.card[data-type="goods"] > footer {
+    background-color: #2a2a2a;
+    display: flex;
+}
+
+.card[data-type="goods"] [data-type="amount"] {
+    margin: 2px 6px;
+    padding: 5px;
+
+    border: 1px solid white;
+    border-radius: 100%;
+
+    text-align: center;
+}
+
+.card[data-type="goods"] [data-group="1"] {
+    margin-left: auto;
+    float: right;
+
+    text-align: right;
+    padding: 0 5px;
+}
+
+.card[data-type="goods"] div.body > img {
+    width: var(--width);
+    height: var(--heigth);
+}
+
+.card[data-type="goods"] header {
+    display: flex;
+}
+
+.card[data-type="goods"] header button {
+    font-size: 2em;
+    width: 1em;
+    height: 1em;
+}
+
+.card[data-type="goods"] header div[data-type="info"] {
+    margin-top: 10px;
+    margin-left: 30%;
+}
+
+.card[data-type="goods"] header button[data-action="buy"] {
+    margin-left: auto;
+    float: right;
+}
+
+button.red {
+    color: white;
+    background-color: darkred;
+}
+
+button.green {
+    color: white;
+    background-color: darkgreen;
+}
+
+button.blue {
+    color: white;
+    background-color: dodgerblue;
+}
+
+button.no-decor {
+    border: none;
+}
