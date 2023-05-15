@@ -9,7 +9,13 @@
 }
 
 button {
+    border: none;
     cursor: pointer;
+}
+
+button.red {
+    background-color: red;
+    color: white;
 }
 
 body {
@@ -61,11 +67,6 @@ header.main [data-type="title"] {
     margin-right: 1vw;
 }
 
-#view {
-    padding-top: 15vh;
-    color: white;
-}
-
 nav.blue {
     background-color: #111169;
 }
@@ -79,11 +80,22 @@ nav.blue > * {
     flex-direction: row;
 }
 
-#view[data-view="store"] > .container {
+[data-group="view"] {
+    display: none;
+}
+
+[data-group="view"] > .container {
     display: flex;
 }
 
-#view[data-view="store"] [data-action="accept"] {
+[data-group="view"][data-state="active"] {
+    display: block;
+
+    padding-top: 15vh;
+    color: white;
+}
+
+#apply-order {
     margin-left: 1vw;
     margin-bottom: 1vh;
 
@@ -99,7 +111,7 @@ div.card {
     min-width: var(--width);
     min-height: var(--heigth);
 
-    margin: 0 25px;
+    margin-left: 1vw;
 
     user-select: none;
 }

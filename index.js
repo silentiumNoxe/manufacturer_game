@@ -1,23 +1,13 @@
 window.addEventListener("DOMContentLoaded", () => {
     const $nav = document.getElementById("game-nav");
-    $nav.childNodes.forEach($ch => $ch.addEventListener("click", $elem => {
-        document.getElementById("view").dataset.view = $elem.target.dataset.view;
+    $nav.childNodes.forEach($ch => $ch.addEventListener("click", event => {
+        const view = event.target.dataset.view;
+        renderView(view);
     }))
 })
 
 window.addEventListener("DOMContentLoaded", () => {
-    const observer = new MutationObserver(records => {
-        console.debug("observer triggered")
-        const record = records.filter(x => x.type === "attributes" && x.attributeName === "data-view")[0]
-        renderView(record.target.dataset.view);
-    })
-
-    observer.observe(document.getElementById("view"), {attributes: true})
-})
-
-window.addEventListener("DOMContentLoaded", () => {
-    const view = document.getElementById("view").dataset.view;
-    renderView(view);
+    renderView("store").catch(console.error);
 })
 
 window.addEventListener("DOMContentLoaded", async () => {
@@ -33,19 +23,20 @@ window.addEventListener("DOMContentLoaded", async () => {
     Balance.init();
 })
 
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("[data-action='restart']").addEventListener("click", restart);
+})
+
 async function renderView(view) {
     console.debug("render", view);
-    const $view = document.getElementById("view");
+    document.querySelectorAll("[data-group='view']").forEach(x => x.dataset.state = "")
+    const $view = document.querySelector(`[data-view=${view}][data-group='view']`);
 
-    switch (view) {
-        case "store":
-            (await import("./view/store.js")).default($view);
-            return
-        default:
-            $view.innerHTML = view;
-    }
+    $view.dataset.state = "active";
+    (await import(`./view/${view}.js`)).default($view);
 }
 
-async function renderStore($view) {
-
+async function restart() {
+    localStorage.clear();
+    window.location.reload();
 }

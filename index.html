@@ -24,6 +24,15 @@
     <div data-view="game">Game</div>
   </nav>
 </header>
-<section id="view" data-view="store"></section>
+<section data-view="store" data-group="view" data-state="active">
+  <div class="container"></div>
+</section>
+<section data-view="manufacturing" data-group="view"></section>
+<section data-view="inventory" data-group="view"></section>
+<section data-view="sales" data-group="view"></section>
+<section data-view="automation" data-group="view"></section>
+<section data-view="game" data-group="view">
+  <button class="red" data-action="restart">Restart Game</button>
+</section>
 </body>
 </html>
